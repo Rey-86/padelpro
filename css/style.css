@@ -1,0 +1,7 @@
+body{
+    background-color: dodgerblue;
+}
+.logo{
+    display: flex;
+    justify-content: end;
+}
