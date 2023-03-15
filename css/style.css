@@ -4,5 +4,24 @@
 }
 .cuerpo{
     background-color: rgb(28, 28, 28);
+    background-image: url("../img/imagen1.jpg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: 100%;
+    background-attachment: fixed;
+    font-weight: bolder;
+}
+#form{
+    font-style: italic;
+    font-size: large;
+    color: black;
+}
+.label{
+    display: flex;
+    justify-content: flex-start;
+}
+.imgFondo{
 
+    opacity: 0.6;
 }
