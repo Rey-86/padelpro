@@ -2,15 +2,15 @@
 
 require_once("conexion.php");
 
-//session_start();
-//if(isset($_SESSION['idusuario'])){
-  //  header('Location: portada.php');
-//}
+session_start();
+if(isset($_SESSION['idusuario'])){
+    header('Location: portada.php');
+}
 if(isset($_POST['usuario'])){
-   $usuario=$_POST['usuario'];
-   $pass=$_POST['email'];
+   $username=$_POST['usuario'];
+   $email=$_POST['email'];
    $datos=new Datos();
-   $user=$datos->login($usuario,$pass);
+   $user=$datos->login($username,$email);
     if($user!=null){
 $_SESSION['idusuario']=$user['idusuario'];
 $_SESSION['nombre']=$user['nombre'];
@@ -32,7 +32,7 @@ header('Location: portada.php');
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
-<body>
+<body class="fondo">
     <br>
     <div class="logo col-md-8 col-sm-12">
         <img class="img-fluid" src="img/logo (1).png" alt="">
@@ -47,7 +47,7 @@ header('Location: portada.php');
             </div>
             <br>
             <div class="form-group">
-                <label for="password">Email</label>
+                <label for="email">Email</label>
                 <input class="form-control col-md-6 col-sm-12" type="email" name="email" id="email">
             </div>
             <br>

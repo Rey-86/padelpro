@@ -36,7 +36,7 @@ if(isset($_POST['nombre'])){
         <img class="img-fluid" src="img/logo (1).png" alt="">
     </div>
     <br>
-    <div id="cuerpo" class="container col-md-6 col-sm-12">
+    <div class="container col-md-5 col-sm-12 fondo">
         <br>
         <form action="" method="post">
             <div class="form-group">
@@ -56,7 +56,9 @@ if(isset($_POST['nombre'])){
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Registrarse">
             </div>
-        </form>        
+            <img src="img/raquetas.avif" alt="">
+        </form>
+           
     </div>
     
 </body>

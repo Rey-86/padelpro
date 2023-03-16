@@ -12,7 +12,6 @@ class Datos
         $this->conn = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
     }
 
-    //Devuelve NULL si no existe el usuario y un array con los datos del usuario si existe
     function login($username, $email)
     {
         $consulta = "select * from usuarios where nombre=? and email=?";
@@ -31,7 +30,6 @@ class Datos
         $stm->execute();
         $resultado = $stm->get_result();
         if ($resultado->num_rows > 0) {
-            //echo "El usuario ya existe";
             return false;
         } else {
             $consulta = "insert into usuarios (nombre,email,telefono) values (?,?,?)";
@@ -46,5 +44,21 @@ class Datos
             }
         }
     }
+
+    function getTurnos($fecha,$pista,$turno){
+        $consulta = "SELECT turnos.id, turnos.turno FROM turnos LEFT JOIN reservas ON turnos.id = reservas.turno AND reservas.fecha = ? and reservas.idpista=? WHERE reservas.idreserva IS NULL;";
+        $stm = $this->conn->prepare($consulta);
+        $stm->bind_param("si", $fecha,$pista);
+        $stm->execute();
+        $resultado = $stm->get_result();
+        $turnos = array();
+        while($turno=$resultado->fetch_assoc()){
+            array_push($turnos, $turno);
+        }
+        return $turnos;
+       
+    }
 }
+
+
 ?>    

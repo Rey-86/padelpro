@@ -21,7 +21,7 @@
     display: flex;
     justify-content: flex-start;
 }
-.imgFondo{
-
-    opacity: 0.6;
+.fondo{
+    display: flex;
+    justify-content: space-between;
 }
