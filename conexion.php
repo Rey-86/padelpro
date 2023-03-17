@@ -45,7 +45,7 @@ class Datos
         }
     }
 
-    function getTurnos($fecha,$pista,$turno){
+    function getTurnos($fecha,$pista){
         $consulta = "SELECT turnos.id, turnos.turno FROM turnos LEFT JOIN reservas ON turnos.id = reservas.turno AND reservas.fecha = ? and reservas.idpista=? WHERE reservas.idreserva IS NULL;";
         $stm = $this->conn->prepare($consulta);
         $stm->bind_param("si", $fecha,$pista);
@@ -58,7 +58,16 @@ class Datos
         return $turnos;
        
     }
+    function reservas($idpista, $idusuario, $fecha, $turno,$jugador1,$jugador2,$jugador3,$jugador4 ){
+        $consulta = "insert into reservas (idpista,idusuario,fecha,turno,jugador1,jugador2,jugador3,jugador4) values (?,?,?,?,?,?,?,?)";
+        $stm = $this->conn->prepare($consulta);
+        $stm->bind_param("ssssssss", $idpista,$idusuario,$fecha,$turno,$jugador1,$jugador2,$jugador3,$jugador4);
+        $stm->execute();
+
+        if ($stm->affected_rows > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
-
-
-?>    

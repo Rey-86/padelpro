@@ -1,8 +1,19 @@
 <?php
 require_once("conexion.php");
-if (isset($_SESSION['idusuario'])) {
-    $datos = new Datos();
-    $date = $datos->getTurnos($fecha, $pista, $turno);
+session_start();
+if (!isset($_SESSION['idusuario'])) {
+    header("Location:login.php");
+}
+if(isset($_POST["pista"])){
+    $idpista = $_POST["pista"];
+    $turno = $_POST["turno"];
+    $fecha = $_POST["fecha"];
+    $jugador1=$_POST["jugador1"];
+    $jugador2=$_POST["jugador2"];
+    $jugador3=$_POST["jugador3"];
+    $jugador4=$_POST["jugador4"];
+    $idusuario = $_SESSION['idusuario'];
+
 }
 
 ?>
@@ -25,7 +36,7 @@ if (isset($_SESSION['idusuario'])) {
         <img class="img-fluid" src="img/logo (1).png" alt="">
     </div>
     <br>
-    <div class="enlaces">
+    <div class="enlaces link-secondary">
         <a href="contacto.php">Contacto</a>
         <a href="pistas.php">Nuestras pistas</a>
         <a href="nosotros.php">¿Quienes somos?</a>
@@ -36,32 +47,34 @@ if (isset($_SESSION['idusuario'])) {
     <div class="container col-md-6 col-sm-12">
         <form id="form" action="" method="post">
             <div class="form-group">
+                <label class="label" for="">Seleccione Pista</label>
+                <select class="form-control" name="pista" id="pista">
+                    <option value="none">---</option>
+                    <option value="1">Pista Azul</option>
+                    <option value="4">Pista Pro</option>
+                    <option value="3">Pista Roja</option>
+                    <option value="2">Pista Verde</option>
+                </select>
+                <br><br>
                 <label class="label" for="">Seleccione Fecha</label>
                 <input class="form-control" type="date" name="fecha" id="fecha">
                 <br><br>
                 <div class="form-group">
                     <label class="label" for="">Seleccione Turno</label>
                     <select class="form-control" name="turno" id="turno">
-                        <option value="none">---</option>
-                        <option value="1">9:00 a 11:00</option>
-                        <option value="2">11:00 a 13:00</option>
-                        <option value="3">13:00 a 15:00</option>
-                        <option value="4">15:00 a 17:00</option>
-                        <option value="5">17:00 a 19:00</option>
-                        <option value="6">19:00 a 21:00</option>
-
                     </select>
                     <br><br>
+                    <div class="row">
+                        <div class="col-6">
+                            <input type="text" class="form-control" name="jugador1" placeholder="Jugador 1">
+                            <input type="text" class="form-control" name="jugador2" placeholder="Jugador 1">
+                        </div>
+                        <div class="col-6">
+                        <input type="text" class="form-control" name="jugador3" placeholder="Jugador 1">
+                            <input type="text" class="form-control" name="jugador4" placeholder="Jugador 1">
+                        </div>
+                    </div>
 
-                    <label class="label" for="">Seleccione Pista</label>
-                    <select class="form-control" name="pista" id="pista">
-                        <option value="none">---</option>
-                        <option value="1">Pista Azul</option>
-                        <option value="4">Pista Pro</option>
-                        <option value="3">Pista Roja</option>
-                        <option value="2">Pista Verde</option>
-                    </select>
-                    <br><br>
 
                     <input type="submit" class="btn btn-primary" value="Reservar">
                 </div>

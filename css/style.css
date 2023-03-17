@@ -30,5 +30,6 @@
 .enlaces{
     font-style: italic;
     font-size: large;
-    color: whitesmoke;
+    display: flex;
+    justify-content: space-around;
 }
