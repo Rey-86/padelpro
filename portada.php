@@ -13,7 +13,9 @@ if(isset($_POST["pista"])){
     $jugador3=$_POST["jugador3"];
     $jugador4=$_POST["jugador4"];
     $idusuario = $_SESSION['idusuario'];
-
+    $datos = new Datos();
+    $datos->reservas($idpista, $idusuario, $fecha, $turno, $jugador1, $jugador2, $jugador3, $jugador4);
+    header("Location:portada.php");
 }
 
 ?>

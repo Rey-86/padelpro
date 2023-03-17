@@ -59,9 +59,10 @@ class Datos
        
     }
     function reservas($idpista, $idusuario, $fecha, $turno,$jugador1,$jugador2,$jugador3,$jugador4 ){
-        $consulta = "insert into reservas (idpista,idusuario,fecha,turno,jugador1,jugador2,jugador3,jugador4) values (?,?,?,?,?,?,?,?)";
+        $consulta = "insert into reservas (idpista,idusuario,fecha,turno,jugador_1,jugador_2,jugador_3,jugador_4) values (?,?,?,?,?,?,?,?)";
+
         $stm = $this->conn->prepare($consulta);
-        $stm->bind_param("ssssssss", $idpista,$idusuario,$fecha,$turno,$jugador1,$jugador2,$jugador3,$jugador4);
+        $stm->bind_param("iisissss", $idpista,$idusuario,$fecha,$turno,$jugador1,$jugador2,$jugador3,$jugador4);
         $stm->execute();
 
         if ($stm->affected_rows > 0) {
