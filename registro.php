@@ -30,19 +30,18 @@ if(isset($_POST['nombre'])){
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
-<body>
-    <br>
+<body class="fondo">
     <div class="logo col-md-8 col-sm-12">
         <img class="img-fluid" src="img/logo (1).png" alt="">
     </div>
     <br>
-    <div class="container col-md-5 col-sm-12 fondo">
-        <br>
+    <div class="container col-md-6 col-sm-12 fondo">
         <form action="" method="post">
             <div class="form-group">
                 <label for="usuario">Nombre</label>
                 <input class="form-control col-md-6 col-sm-12" required type="text" name="nombre" id="nombre">
             </div>
+            <br>
             <div class="form-group">
                 <label for="usuario">Email</label>
                 <input class="form-control col-md-6 col-sm-12" required type="email" name="email" id="email">
@@ -55,6 +54,7 @@ if(isset($_POST['nombre'])){
             <br>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Registrarse">
+                <br><br>
             </div>
             <img src="img/raquetas.avif" alt="">
         </form>

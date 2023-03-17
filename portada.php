@@ -1,8 +1,8 @@
 <?php
 require_once("conexion.php");
-if(isset($_SESSION['idusuario'])){
-    $datos=new Datos();
-    $date = $datos->getTurnos($fecha,$pista,$turno);
+if (isset($_SESSION['idusuario'])) {
+    $datos = new Datos();
+    $date = $datos->getTurnos($fecha, $pista, $turno);
 }
 
 ?>
@@ -24,14 +24,14 @@ if(isset($_SESSION['idusuario'])){
     <div class="logo col-md-8 col-sm-12">
         <img class="img-fluid" src="img/logo (1).png" alt="">
     </div>
-    <br><br>
+    <br>
     <div class="enlaces">
-        <a href=""></a>
-        <a href=""></a>
-        <a href=""></a>
-        <a href=""></a>
+        <a href="contacto.php">Contacto</a>
+        <a href="pistas.php">Nuestras pistas</a>
+        <a href="nosotros.php">¿Quienes somos?</a>
+        <a href="cerrarsesion.php">Cerrar sesión</a>
     </div>
-    <br><br><br><br>
+    <br><br><br>
     <div></div>
     <div class="container col-md-6 col-sm-12">
         <form id="form" action="" method="post">
@@ -39,7 +39,6 @@ if(isset($_SESSION['idusuario'])){
                 <label class="label" for="">Seleccione Fecha</label>
                 <input class="form-control" type="date" name="fecha" id="fecha">
                 <br><br>
-                <hr>
                 <div class="form-group">
                     <label class="label" for="">Seleccione Turno</label>
                     <select class="form-control" name="turno" id="turno">
@@ -53,7 +52,7 @@ if(isset($_SESSION['idusuario'])){
 
                     </select>
                     <br><br>
-                    <hr>
+
                     <label class="label" for="">Seleccione Pista</label>
                     <select class="form-control" name="pista" id="pista">
                         <option value="none">---</option>
@@ -63,11 +62,11 @@ if(isset($_SESSION['idusuario'])){
                         <option value="2">Pista Verde</option>
                     </select>
                     <br><br>
-                    <hr>
+
                     <input type="submit" class="btn btn-primary" value="Reservar">
                 </div>
         </form>
-        
+
     </div>
 </body>
 
